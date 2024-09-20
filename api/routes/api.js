@@ -16,4 +16,14 @@ router.get('/categorys', (req, res) => {
   });
 });
 
+
+// 
+router.get('/fundraiser/:id', (req, res) => {
+  const { id } = req.params;
+  db.query('SELECT a.*,b.`NAME`AS CATEGORY_NAME FROM FUNDRAISER a LEFT JOIN CATEGORY b ON a.CATEGORY_ID = b.CATEGORY_ID WHERE a.ACTIVE = 1 AND a.FUNDRAISER_ID = ?', [id], (err, results) => {
+    if (err) return res.status(500).json(err);
+    res.json(results[0]);
+  });
+});
+
 module.exports = router;
