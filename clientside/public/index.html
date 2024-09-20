@@ -1,11 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
 </head>
+
 <body>
-  Hello world
+  <h1>欢迎来到众筹中心</h1>
+  <div id="fundraiser-list">
+
+  </div>
+  <script>
+    window.onload = fetchFundraisers;
+    async function fetchFundraisers() {
+      const response = await fetch('/api/fundraisers');
+      const fundraisers = await response.json();
+      const listDiv = document.getElementById('fundraiser-list');
+
+      fundraisers.forEach(item => {
+        const div = document.createElement('div');
+        div.innerHTML = `<h2>${item.CAPTION}</h2>
+                        <p>${item.ORGANIZER}</p>`;
+        listDiv.appendChild(div);
+      });
+    }
+  </script>
 </body>
+
 </html>
