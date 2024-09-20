@@ -5,12 +5,18 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <link rel="stylesheet" href="/static/css/app.css">
 </head>
 
 <body>
   <h1>欢迎来到众筹中心</h1>
-  <div id="fundraiser-list">
+  <header>
 
+  </header>
+  <div id="home-container">
+    <div id="fundraiser-list">
+
+    </div>
   </div>
   <script>
     window.onload = fetchFundraisers;
@@ -20,9 +26,12 @@
       const listDiv = document.getElementById('fundraiser-list');
 
       fundraisers.forEach(item => {
-        const div = document.createElement('div');
-        div.innerHTML = `<h2>${item.CAPTION}</h2>
-                        <p>${item.ORGANIZER}</p>`;
+        const div = document.createElement('card');
+        div.innerHTML = `
+                        <div>
+                        <h2>${item.CAPTION}</h2>
+                        <p>${item.ORGANIZER}</p>
+                        </div>`;
         listDiv.appendChild(div);
       });
     }

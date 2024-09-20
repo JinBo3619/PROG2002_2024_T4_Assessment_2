@@ -1,0 +1,21 @@
+#home-container{
+  margin: 0 auto;
+  max-width: 72rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+#fundraiser-list{
+    display: flex;
+    flex-wrap: wrap;
+    /* justify-content: space-between; */
+    align-items: center;
+}
+#fundraiser-list card{
+  width: 30%;
+  min-height: 260px;
+  border-radius: 1rem  !important;
+  border: 1px solid;
+  margin: 2px;
+  padding: 2px;
+  
+}
