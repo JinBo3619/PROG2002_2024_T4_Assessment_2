@@ -29,9 +29,22 @@
         const div = document.createElement('card');
         div.innerHTML = `
                         <div>
-                        <h2>${item.CAPTION}</h2>
-                        <p>${item.ORGANIZER}</p>
-                        </div>`;
+                          <h2>${item.CAPTION}</h2>
+                        </div>
+                        <div>
+                          <p>
+                            <span class='target-funding'>$${item.TARGET_FUNDING}<span> 
+                            <span class='current-funding'>raised out of $${item.CURRENT_FUNDING} target<span>
+                          </p>
+                          <p>ORGANIZER: ${item.ORGANIZER}</p>
+                          <p>CITY: ${item.CITY}</p>
+                          <p> ${item.CATEGORY_NAME}</p>
+                          <p>${item.ACTIVE==1?"Active":"Inactive"}</p>
+                        </div>
+                        <div class='card-button'>
+                          <span>Learn more<span>
+                        </div>
+                        `;
         listDiv.appendChild(div);
       });
     }

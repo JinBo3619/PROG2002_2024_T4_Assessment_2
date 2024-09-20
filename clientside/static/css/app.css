@@ -1,21 +1,46 @@
-#home-container{
+#home-container {
   margin: 0 auto;
   max-width: 72rem;
   padding-left: 1rem;
   padding-right: 1rem;
 }
-#fundraiser-list{
-    display: flex;
-    flex-wrap: wrap;
-    /* justify-content: space-between; */
-    align-items: center;
+
+#fundraiser-list {
+  display: flex;
+  flex-wrap: wrap;
+  /* justify-content: space-between; */
+  align-items: center;
 }
-#fundraiser-list card{
+
+#fundraiser-list card {
   width: 30%;
-  min-height: 260px;
-  border-radius: 1rem  !important;
+  min-height: 340px;
+  border-radius: 1rem !important;
   border: 1px solid;
   margin: 2px;
   padding: 2px;
-  
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.card-button {
+  border-radius: .5rem;
+  font-size: .875rem;
+  font-weight: 800;
+  line-height: 1;
+  margin-right: auto;
+  margin-top: auto;
+  padding: .75rem 1rem .75rem 0;
+  transition: .3s ease-in-out;
+}
+.target-funding {
+  font-weight: bold;
+  color: #2c3e50; 
+  font-size: 1.2em;
+}
+
+.current-funding {
+  font-weight: normal;
+  font-size: 1em;
+  margin-left: 5px; 
 }
