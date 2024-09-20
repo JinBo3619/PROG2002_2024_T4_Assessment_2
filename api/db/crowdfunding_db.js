@@ -11,7 +11,7 @@ connection.connect((err) => {
     console.error('数据库连接失败: ' + err.stack);
     return;
   }
-  console.log('成功连接到数据库，连接ID: ' + connection.threadId);
+  console.log('成功连接到数据库');
 });
  
 // connection.query('SELECT 1 + 1 AS solution', function (error, results, fields) {
