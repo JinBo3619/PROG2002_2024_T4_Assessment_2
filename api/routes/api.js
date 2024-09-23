@@ -9,7 +9,7 @@ router.get('/fundraisers', (req, res) => {
   });
 });
 
-router.get('/categorys', (req, res) => {
+router.get('/categories', (req, res) => {
   db.query('SELECT * FROM CATEGORY', (err, results) => {
     if (err) return res.status(500).json(err);
     res.json(results);
