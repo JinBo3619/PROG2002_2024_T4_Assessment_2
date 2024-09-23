@@ -4,15 +4,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Index Page</title>
   <link rel="stylesheet" href="/static/css/app.css">
 </head>
 
 <body>
-  <h1>欢迎来到众筹中心</h1>
   <header>
-
+    <div class="header">
+      <div class="container">
+        <a class="logo">Crowdfunding</a>
+        <div class="nav">
+          <ul class="nav-links">
+            <li><a class="nav-link" href="index.html">Home</a></li>
+            <li><a class="nav-link" href="search.html">Search</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
   </header>
+
   <div id="home-container">
     <div id="fundraiser-list">
 
@@ -40,10 +50,12 @@
                           <p>ORGANIZER: ${item.ORGANIZER}</p>
                           <p>CITY: ${item.CITY}</p>
                           <p> ${item.CATEGORY_NAME}</p>
-                          <p>${item.ACTIVE==1?"Active":"Inactive"}</p>
+                          <p class="status-tag ${item.ACTIVE == 1 ? 'status-active' : 'status-inactive'}">
+                            ${item.ACTIVE == 1 ? "Active" : "Inactive"}
+                          </p>
                         </div>
                         <div class='card-button'>
-                          <a href="/detail?id=${item.FUNDRAISER_ID}">Learn more</a>
+                          <a href="/detail.html?id=${item.FUNDRAISER_ID}">Learn more</a>
                         </div>
                         `;
         listDiv.appendChild(div);
