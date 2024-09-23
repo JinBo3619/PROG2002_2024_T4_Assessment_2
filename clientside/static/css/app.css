@@ -12,7 +12,7 @@
   align-items: center;
 }
 
-#fundraiser-list card {
+#fundraiser-list .card {
   width: 30%;
   min-height: 340px;
   border-radius: 1rem !important;
