@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>detail</title>
 </head>
+
 <body>
   <div id="fundraiser-detail">
     <p><strong>Organizer:</strong> <span id="organizer"></span></p>
@@ -14,10 +16,16 @@
     <p><strong>City:</strong> <span id="city"></span></p>
     <p><strong>Category:</strong> <span id="category"></span></p>
     <p><strong>Status:</strong> <span id="status"></span></p>
+    <!-- Donate: This feature is under contruction -->
+    <button onclick="handleDonateClick()">Donate</button>
   </div>
 
   <script>
-     async function loadFundraiserDetail() {
+    function handleDonateClick() {
+      alert("This feature is under contruction")
+    }
+
+    async function loadDetail() {
       const params = new URLSearchParams(window.location.search);
       const id = params.get('id');
 
@@ -41,8 +49,8 @@
       }
     }
 
-    // 页面加载时执行
-    window.onload = loadFundraiserDetail;
+    window.onload = loadDetail;
   </script>
 </body>
+
 </html>
