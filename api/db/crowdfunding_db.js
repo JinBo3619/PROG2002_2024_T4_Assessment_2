@@ -8,10 +8,10 @@ var connection = mysql.createConnection({
  
 connection.connect((err) => {
   if (err) {
-    console.error('数据库连接失败: ' + err.stack);
+    console.error('Database connection failed: ' + err.stack);
     return;
   }
-  console.log('成功连接到数据库');
+  console.log('Successfully connected to the database');
 });
  
 // connection.query('SELECT 1 + 1 AS solution', function (error, results, fields) {
