@@ -17,15 +17,16 @@ body{
 }
 
 #fundraiser-list .card {
-  width: 30%;
+  width: 28%;
   min-height: 340px;
   border-radius: 1rem !important;
-  border: 1px solid;
-  margin: 2px;
-  padding: 2px;
+  /* border: 1px solid; */
+  margin: 8px;
+  padding: 10px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
 }
 .card-button {
   border-radius: .5rem;
@@ -101,4 +102,30 @@ body{
 
 .status-inactive {
   background-color: #dc3545; 
+}
+
+.center{
+  margin: 0rem auto;
+  max-width: 72rem;
+}
+.search {
+  display: flex;
+  align-items: center;
+}
+
+.form-item {
+  display: flex;
+  margin: 15px 10px;
+}
+
+label {
+  font-size: 14px;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+.error-message {
+  color: red;
+  font-weight: bold;
+  margin-top: 10px;
 }

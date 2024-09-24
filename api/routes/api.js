@@ -26,4 +26,23 @@ router.get('/fundraiser/:id', (req, res) => {
   });
 });
 
+router.get("/search", async (req, res) => {
+  const { organizer, city, category } = req.query;
+  let sql = ''
+  if (organizer) {
+      sql +=  ` AND a.ORGANIZER = '${organizer}'`
+  }
+  if (city) {
+      sql += ` AND a.CITY = '${city}'`
+  }
+  if (category) {
+      sql += ` AND a.CATEGORY_ID = ${category}`
+  }
+  db.query(`SELECT a.*,b.NAME AS CATEGORY_NAME FROM FUNDRAISER a 
+    LEFT JOIN CATEGORY b ON a.CATEGORY_ID = b.CATEGORY_ID WHERE 1=1 ` + sql, (err, results) => {
+    if (err) return res.status(500).json(err);
+    res.json(results);
+  });
+});
+
 module.exports = router;
