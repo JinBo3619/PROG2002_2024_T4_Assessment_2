@@ -30,10 +30,10 @@ router.get("/search", async (req, res) => {
   const { organizer, city, category } = req.query;
   let sql = ''
   if (organizer) {
-      sql +=  ` AND a.ORGANIZER = '${organizer}'`
+      sql +=  ` AND a.ORGANIZER LIKE '%${organizer}%'`
   }
   if (city) {
-      sql += ` AND a.CITY = '${city}'`
+      sql += ` AND a.CITY LIKE '%${city}%'`
   }
   if (category) {
       sql += ` AND a.CATEGORY_ID = ${category}`

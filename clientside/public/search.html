@@ -40,72 +40,15 @@
       <button type="button" onclick="clearCheckboxes()">Reset</button>
     </div>
 
-    <div id="fundraiser-list">
+    <div id="fundraiser-list" class="center">
 
     </div>
   </div>
+  <script src="/static/js/index.js">
+
+  </script>
   <script>
     window.onload = getCategories();
-
-    async function getCategories() {
-      const res = await fetch(`/api/categories`);
-      const list = await res.json();
-      const categoryDom = document.getElementById('category')
-
-      for (const item of list) {
-        console.log(item)
-        const option = document.createElement('option')
-        option.value = item.CATEGORY_ID
-        option.textContent = item.NAME
-        categoryDom.appendChild(option)
-      }
-    }
-
-    async function searchFundraisers() {
-      const organizer = document.getElementById('organizer').value;
-      const city = document.getElementById('city').value;
-      const category = document.getElementById('category').value;
-      if (!organizer && !city && !category) {
-        alert('Search content is empty');
-        return;
-      }
-      const res = await fetch(`/api/search?organizer=${organizer}&city=${city}&category=${category}`);
-      const list = await res.json();
-      const listDiv = document.getElementById('fundraiser-list');
-      listDiv.innerHTML = '';
-      if (list.length === 0) {
-        const errorMessage = document.createElement('p');
-        errorMessage.textContent = "No fundraisers found. Please try different search criteria.";
-        errorMessage.classList.add('error-message');
-        listDiv.appendChild(errorMessage)
-        return;
-      }
-      for (const item of list) {
-        const div = document.createElement('div');
-        div.classList.add('card');
-        div.innerHTML = `
-                        <div>
-                          <h2>${item.CAPTION}</h2>
-                        </div>
-                        <div>
-                          <p>
-                            <span class='target-funding'>$${item.TARGET_FUNDING}</span> 
-                            <span class='current-funding'>raised out of $${item.CURRENT_FUNDING} target</span>
-                          </p>
-                          <p>ORGANIZER: ${item.ORGANIZER}</p>
-                          <p>CITY: ${item.CITY}</p>
-                          <p> ${item.CATEGORY_NAME}</p>
-                          <p class="status-tag ${item.ACTIVE == 1 ? 'status-active' : 'status-inactive'}">
-                            ${item.ACTIVE == 1 ? "Active" : "Inactive"}
-                          </p>
-                        </div>
-                        <div class='card-button'>
-                          <a href="/detail.html?id=${item.FUNDRAISER_ID}">Learn more</a>
-                        </div>
-                        `;
-        listDiv.appendChild(div);
-      }
-    }
 
   </script>
 </body>
